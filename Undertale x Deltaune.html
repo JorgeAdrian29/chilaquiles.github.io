@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         #mensaje {
             display: none;
@@ -148,7 +149,7 @@
         }
     </script>
 
-    <center><img src="imagenes/youve-won.gif" style="height:200px;"></center>
+
 
     <div>
         <center>
@@ -174,6 +175,37 @@
         }
     </script>
 
+    <center><img src="imagenes/Sans.jpg" id="imagenCambiante" style="height:200px;"></center>
+
+    <script>
+
+        var imagenes = ["imagenes/Sans.jpg", "imagenes/dog.jpg", "imagenes/lancer.jpg", "imagenes/ralsei.jpg", "imagenes/tilin.jpeg"];
+
+        var ImagenActual = 0;
+
+        function ImagenSiguiente() {
+            ImagenActual = (ImagenActual + 1) % imagenes.length;
+            CambiarImagen(ImagenActual);
+        }
+        function ImagenAnterior() {
+            ImagenActual = (ImagenActual - 1 + imagenes.length) % imagenes.length;
+            CambiarImagen(ImagenActual);
+        }
+        function CambiarImagen(Imagen) {
+            var imagen = document.getElementById("imagenCambiante");
+            imagen.src = imagenes[Imagen]
+        }
+
+    </script>
+
+    <center><button onclick="ImagenSiguiente()">siguiente</button></center>
+    <center><button onclick="ImagenAnterior()">anterior</button></center>
+
+
+
+
+
+    <center><img src="imagenes/youve-won.gif" style="height:200px;"></center>
     <audio controls>
         <source src="musica/X2Download.app - Spamton (128 kbps).mp3" type="audio/mpeg">
         <source src="musica/X2Download.app - Spamton (128 kbps).mp3" type="audio/ogg">
